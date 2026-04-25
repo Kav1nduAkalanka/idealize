@@ -5,25 +5,52 @@ const faqs = [
     num: "01.",
     color: "text-primary",
     hoverBorder: "hover:border-primary/50",
-    question: "What is the team size capacity?",
-    answer: "Teams must consist of 2 to 4 members. Lone wolves are encouraged to utilize our Dimension Sync (team-matching) event on the first day to find their squad.",
+    question: "How many members can be in one team?",
+    answer: "For the School category, teams can have 2-5 members. For the Open category, teams can have 2-5 members. All team members should be registered through the official registration form.",
   },
   {
     num: "02.",
     color: "text-secondary",
     hoverBorder: "hover:border-secondary/50",
-    question: "Who is eligible to participate?",
-    answer: "Any resident of this dimension (or others) currently enrolled in a university or who has graduated within the last 12 months. All skill levels—from prompt engineers to kernel hackers—are welcome.",
+    question: "Do all team members need to be from the same university or school?",
+    answer: "No, team members can be from different institutions. This encourages diverse collaboration and allows you to form the best team possible regardless of institutional affiliations.",
   },
   {
     num: "03.",
     color: "text-blue-300",
     hoverBorder: "hover:border-blue-300/50",
-    question: "What are the primary ground rules?",
-    answer: "All code must be written during the 48-hour hackathon period. Use of open-source libraries and AI tools is permitted, but the core 'glitch' must be original work. Respect the canon, but don't be afraid to break it.",
+    question: "Do we need to have prior app and web development knowledge?",
+    answer: "While some basic knowledge is helpful, it's not mandatory. We provide workshops and mentoring sessions to help beginners. Teams with mixed skill levels often perform well as they combine different perspectives.",
+  },
+  {
+    num: "04.",
+    color: "text-primary",
+    hoverBorder: "hover:border-primary/50",
+    question: "Are there any specific platforms or technologies that must be used?",
+    answer: "No, you have the freedom to choose any platform or technology stack that best suits your project. This includes web, mobile (Android/iOS), or cross-platform solutions. The focus is on innovation and solving the problem effectively.",
+  },
+  {
+    num: "05.",
+    color: "text-secondary",
+    hoverBorder: "hover:border-secondary/50",
+    question: "Will we be awarded for participation?",
+    answer: "Yes, all participants will receive a certificate of participation. Additionally, there are various category awards and special recognition for outstanding projects even if they don't win the main prizes.",
+  },
+  {
+    num: "06.",
+    color: "text-blue-300",
+    hoverBorder: "hover:border-blue-300/50",
+    question: "Can we work on an existing project or idea?",
+    answer: "Projects must be original and developed specifically for Idealize 2025. However, you can build upon previous concepts if they are substantially improved or reimagined for this competition.",
+  },
+  {
+    num: "07.",
+    color: "text-primary",
+    hoverBorder: "hover:border-primary/50",
+    question: "Is there any registration fee?",
+    answer: "No, participation in Idealize 2025 is completely free of charge. We believe in providing equal opportunities for all talented individuals regardless of financial background.",
   },
 ];
-
 export default function FAQ() {
   const [open, setOpen] = useState(null);
 
@@ -61,13 +88,7 @@ export default function FAQ() {
             </div>
           ))}
         </div>
-        <div className="mt-12 p-4 bg-slate-900 border-l-4 border-primary flex items-center gap-4">
-          <span className="material-symbols-outlined text-primary">terminal</span>
-          <p className="text-xs font-mono text-slate-500 uppercase">
-            Still have queries?{" "}
-            <a className="text-primary hover:underline" href="#">Open a support ticket</a>
-          </p>
-        </div>
+        
       </div>
     </section>
   );

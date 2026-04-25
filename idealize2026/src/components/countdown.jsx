@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import WalkingSpider from "./spiderwalk";
 
-// 🔧 SET YOUR TARGET DATE HERE
 const TARGET_DATE = new Date("2026-04-28T00:00:00");
 
 function useCountdown(target) {
@@ -26,14 +26,11 @@ function Digit({ value, label, color, bgIcon }) {
   return (
     <div className={`group relative p-1 bg-gradient-to-br ${color} to-transparent`}>
       <div className="bg-surface relative overflow-hidden flex flex-col items-center justify-center py-4 px-2 md:py-8 md:px-6">
-        {/* Faded background icon */}
         <div className="absolute inset-0 flex items-center justify-center opacity-5 group-hover:opacity-10 transition-opacity">
           <span className="material-symbols-outlined text-[4rem] md:text-[8rem] text-white">{bgIcon}</span>
         </div>
-        {/* HUD corners */}
         <div className="absolute top-0 left-0 w-3 h-3 md:w-4 md:h-4 border-t-2 border-l-2 border-primary"></div>
         <div className="absolute bottom-0 right-0 w-3 h-3 md:w-4 md:h-4 border-b-2 border-r-2 border-secondary"></div>
-
         <div
           className="font-headline font-black text-3xl md:text-7xl text-white tabular-nums relative z-10"
           style={{ textShadow: "0 0 30px rgba(77,96,189,0.6)" }}
@@ -74,13 +71,12 @@ export default function Countdown() {
               className="font-bold text-xs tracking-widest text-primary uppercase"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              {isExpired ? "Registration Closed" :""}
+              {isExpired ? "Registration Closed" : "Registration closing in"}
             </span>
           </div>
-          
         </div>
 
-        {/* Countdown — always 4 columns, never wraps */}
+        {/* Countdown */}
         {!isExpired ? (
           <div className="grid grid-cols-4 gap-3 md:gap-6 max-w-3xl mx-auto">
             {units.map(({ value, label, color, bgIcon }) => (
@@ -102,7 +98,10 @@ export default function Countdown() {
         {/* CTA */}
         {!isExpired && (
           <div className="text-center mt-12 md:mt-16">
-            <button className="px-8 md:px-12 py-4 md:py-5 bg-primary text-white font-headline font-black uppercase tracking-widest text-base md:text-lg hover:scale-105 active:scale-95 transition-all shadow-[8px_8px_0px_0px_rgba(77,96,189,0.4)]">
+            <button
+              className="px-8 md:px-12 py-4 md:py-5 bg-primary text-white font-headline font-black uppercase tracking-widest text-base md:text-lg hover:scale-105 active:scale-95 transition-all shadow-[8px_8px_0px_0px_rgba(77,96,189,0.4)]"
+              onClick={() => window.open("https://tally.so/r/Np4V0p", "_blank")}
+            >
               Register Now
             </button>
             <p
@@ -113,6 +112,11 @@ export default function Countdown() {
             </p>
           </div>
         )}
+
+        {/* Spider rows */}
+<div className="mt-16">
+  <WalkingSpider count={2} size={80} speeds={[0.04, 0.07]} />
+</div>
 
       </div>
     </section>

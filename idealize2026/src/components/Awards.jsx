@@ -82,17 +82,17 @@ export default function Awards() {
     <section className="py-24 px-6 min-h-screen flex flex-col justify-center" id="awards">
       <div className="max-w-[1200px] mx-auto w-full">
         {/* Header */}
-        <div className="mb-12">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400 mb-3"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            
-          </p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Awards & <span className="text-blue-500">Recognition</span>
-          </h2>
-          <div className="h-px w-24 bg-gradient-to-r from-blue-600 to-blue-300 mt-5"></div>
-        </div>
+        <div className="mb-12 flex flex-col items-center text-center">
+  <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400 mb-3"
+    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    
+  </p>
+  <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase"
+    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    Awards & <span className="text-blue-500">Recognition</span>
+  </h2>
+  <div className="h-px w-24 bg-gradient-to-r from-blue-600 to-blue-300 mt-5"></div>
+</div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

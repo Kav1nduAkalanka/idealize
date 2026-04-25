@@ -45,12 +45,17 @@ export default function Categories() {
       <div className="max-w-[1200px] mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="font-headline font-black text-5xl uppercase italic tracking-tighter inline-block relative">
-            Competition Categories
-            <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-transparent"></div>
-          </h2>
-        </div>
+        <div className="mb-12 flex flex-col items-center text-center">
+  <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400 mb-3"
+    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    
+  </p>
+  <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase"
+    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    Competition <span className="text-blue-500">Categories</span>
+  </h2>
+  <div className="h-px w-24 bg-gradient-to-r from-blue-600 to-blue-300 mt-5"></div>
+</div>
 
         {/* Cards — 2 column wide cards to match the larger layout */}
         <div className="grid md:grid-cols-2 gap-8">
@@ -98,9 +103,7 @@ export default function Categories() {
                   </ul>
 
                   {/* Button */}
-                  <button className={`px-8 py-3 bg-gradient-to-br ${cat.gradient} border border-current ${cat.iconColor} font-headline font-black uppercase tracking-widest text-sm hover:opacity-80 transition-all`}>
-                    {cat.btn}
-                  </button>
+
                 </div>
               </div>
             </div>

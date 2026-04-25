@@ -126,18 +126,23 @@ export default function Navbar({ activeSection, scrollToSection }) {
         </div>
 
         {/* Desktop register */}
-        <button className="register-btn hidden lg:block">Register Now</button>
+<button className="register-btn hidden lg:block" onClick={() => window.open("https://tally.so/r/Np4V0p", "_blank")}>
+  Register Now
+</button>
 
-        {/* Mobile: register + hamburger */}
-        <div className="flex lg:hidden items-center gap-3">
-          <button className="register-btn">Register</button>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="text-white p-1">
-            <span className="material-symbols-outlined">
-              {menuOpen ? "close" : "menu"}
-            </span>
-          </button>
+{/* Mobile: register + hamburger */}
+<div className="flex lg:hidden items-center gap-3">
+  <button className="register-btn" onClick={() => window.open("https://tally.so/r/Np4V0p", "_blank")}>
+    Register
+  </button>
+  <button onClick={() => setMenuOpen(!menuOpen)} className="text-white p-1">
+    <span className="material-symbols-outlined">
+      {menuOpen ? "close" : "menu"}
+    </span>
+  </button>
+</div>
         </div>
-      </div>
+      
 
       {/* Mobile dropdown */}
       <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${

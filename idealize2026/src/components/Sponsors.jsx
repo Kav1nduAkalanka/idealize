@@ -49,16 +49,17 @@ export default function Sponsors() {
       <div className="max-w-[1200px] mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-20">
-          <p className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Supported By
-          </p>
-          <h2 className="font-headline font-black text-5xl uppercase italic tracking-tighter">
-            Multiverse Partners
-          </h2>
-          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-primary via-secondary to-transparent"></div>
-        </div>
+        <div className="mb-12 flex flex-col items-center text-center">
+  <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400 mb-3"
+    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    
+  </p>
+  <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase"
+    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    Multiverse <span className="text-blue-500">Partners</span>
+  </h2>
+  <div className="h-px w-24 bg-gradient-to-r from-blue-600 to-blue-300 mt-5"></div>
+</div>
 
         {/* Tiers */}
         <div className="space-y-16">

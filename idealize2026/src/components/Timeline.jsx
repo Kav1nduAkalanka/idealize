@@ -65,10 +65,17 @@ export default function Timeline() {
   return (
     <section className="py-32 bg-slate-900/50 relative overflow-hidden" id="timeline">
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="mb-20 flex justify-between items-end">
-          <h2 className="font-headline font-black text-5xl uppercase italic tracking-tighter">Event Timeline</h2>
-          <div className="text-primary font-bold uppercase tracking-widest text-sm hidden md:block">Synchronizing Dimensions...</div>
-        </div>
+                <div className="mb-12 flex flex-col items-center text-center">
+  <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400 mb-3"
+    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    
+  </p>
+  <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase"
+    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    Event <span className="text-blue-500">Timeline</span>
+  </h2>
+  <div className="h-px w-24 bg-gradient-to-r from-blue-600 to-blue-300 mt-5"></div>
+</div>
         <div className="relative">
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-blue-300 opacity-30"></div>
           <div className="space-y-16">

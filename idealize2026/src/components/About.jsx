@@ -1,4 +1,5 @@
 import logo from "../assets/idealizelogo.svg";
+import HangingSpider from "./hanging";
 const tracks = [
   {
     gradient: "from-primary/30",
@@ -40,6 +41,10 @@ const tracks = [
 export default function About() {
   return (
     <section className="py-32 relative bg-slate-900/50 overflow-hidden" id="about">
+           <HangingSpider side="right" offsetX={60} ropeLength={80} size={80} swayAmount={10} swaySpeed={3} />
+
+      <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
+      </div>
       <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
       </div>
       <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
