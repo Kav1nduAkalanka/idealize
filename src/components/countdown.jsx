@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import WalkingSpider from "./spiderwalk";
 
-const TARGET_DATE = new Date("2026-04-28T00:00:00");
+const TARGET_DATE = new Date("2026-05-12T00:00:00");
 
 function useCountdown(target) {
   const calc = () => {
