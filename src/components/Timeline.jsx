@@ -12,7 +12,7 @@ const events = [
   {
     title: "Workshop Starts",
     desc: "Sharpen your tools. Learn from the best.",
-    date: "APRIL 4 ",
+    date: "MAY 4 ",
     color: "text-white",
     dotColor: "bg-white shadow-[0_0_15px_rgba(255,255,255,0.5)]",
     borderColor: "border-white/20",
