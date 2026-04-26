@@ -214,8 +214,6 @@ export default function About() {
         }
       `}</style>
 
-      <HangingSpider side="right" offsetX={60} ropeLength={80} size={80} swayAmount={10} swaySpeed={3} />
-
       <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
         <div className="relative">
           <div className="absolute -top-10 -left-10 text-[200px] font-headline font-black text-white/[0.03] leading-none select-none">
@@ -226,13 +224,13 @@ export default function About() {
           </h2>
           <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
             <p>
-              IDEALIZE 2026 is an island-wide Mobile App and Web Development competition organized by AIESEC in University of Moratuwa. It gives participants the chance to design and build real mobile and web applications while working alongside experienced industry professionals — turning ideas into fully functional products.
+              IDEALIZE 2026 is an island-wide Mobile App and Web Development competition organized by AIESEC in University of Moratuwa. It gives participants the chance to design and build real mobile and web applications while working alongside experienced industry professionals  turning ideas into fully functional products.
             </p>
             <p>
               Whether you're an experienced developer or someone just starting out, IDEALIZE 2026 is a platform to develop your skills, gain hands-on experience, and showcase your creativity to a wider audience.
             </p>
             <p>
-              This year also brings an exciting new addition — a mini <span className="text-primary font-semibold">AI Agent & MCP challenge</span>, giving participants a chance to explore the frontier of intelligent, tool-connected AI systems on the side.
+              This year also brings an exciting new addition  a mini <span className="text-primary font-semibold">AI Agent & MCP challenge</span>, giving participants a chance to explore the frontier of intelligent, tool-connected AI systems on the side.
             </p>
             <p>
               The competition is open to all Sri Lankan youth, regardless of IT background or experience level. No prior knowledge needed — just bring your ideas and enthusiasm!
