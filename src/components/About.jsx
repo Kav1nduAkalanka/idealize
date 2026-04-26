@@ -229,13 +229,13 @@ export default function About() {
               IDEALIZE 2026 is an island-wide Mobile App and Web Development competition organized by AIESEC in University of Moratuwa. It gives participants the chance to design and build real mobile and web applications while working alongside experienced industry professionals  turning ideas into fully functional products.
             </p>
             <p>
-              Whether you're an experienced developer or someone just starting out, IDEALIZE 2026 is a platform to develop your skills, gain hands-on experience, and showcase your creativity to a wider audience.
+              Whether you're an experienced developer or someone just starting out, IDEALIZE 2026 is a platform to develop your skills, gain hands on experience, and showcase your creativity to a wider audience.
             </p>
             <p>
-              This year also brings an exciting new addition  a mini <span className="text-primary font-semibold">AI Agent & MCP challenge</span>, giving participants a chance to explore the frontier of intelligent, tool-connected AI systems on the side.
+              This year also brings an exciting new addition  a mini <span className="text-primary font-semibold">AI Agent & MCP challenge</span>, giving participants a chance to explore the frontier of intelligent, tool connected AI systems on the side.
             </p>
             <p>
-              The competition is open to all Sri Lankan youth, regardless of IT background or experience level. No prior knowledge needed — just bring your ideas and enthusiasm!
+              The competition is open to all Sri Lankan youth, regardless of IT background or experience level. No prior knowledge needed  just bring your ideas and enthusiasm!
             </p>
           </div>
           <div className="mt-12 flex gap-10">
