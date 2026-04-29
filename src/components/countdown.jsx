@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import WalkingSpider from "./spiderwalk";
 
-const REGISTRATION_START = new Date("2026-04-30T00:00:00");
+const REGISTRATION_START = new Date("2026-04-30T18:00:00");
 const TARGET_DATE = new Date("2026-05-12T00:00:00");
 
 function useCountdown(target) {
@@ -54,6 +54,9 @@ export default function Countdown() {
   const { days, hours, minutes, seconds } = useCountdown(TARGET_DATE);
   const isExpired = days === 0 && hours === 0 && minutes === 0 && seconds === 0;
 
+  const formatTime = (date) =>
+    date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
   const units = [
     { value: days,    label: "Days",    color: "from-primary/30",   bgIcon: "calendar_today" },
     { value: hours,   label: "Hours",   color: "from-secondary/30", bgIcon: "schedule"       },
@@ -78,7 +81,7 @@ export default function Countdown() {
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               {!registrationOpen
-                ? `Registrations open on ${REGISTRATION_START.toDateString()}`
+                ? `Registrations open on ${REGISTRATION_START.toDateString()} at ${formatTime(REGISTRATION_START)}`
                 : isExpired
                 ? "Registration Closed"
                 : "Registration closing in"}
@@ -134,7 +137,7 @@ export default function Countdown() {
               className="text-slate-500 text-xs uppercase tracking-widest mt-4 font-bold"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              Deadline: {TARGET_DATE.toDateString()}
+              Deadline: {TARGET_DATE.toDateString()} at {formatTime(TARGET_DATE)}
             </p>
           </div>
         )}
