@@ -15,7 +15,7 @@ export default function Footer({ scrollToSection }) {
     { label: "Privacy Policy",   id: null },
   ];
 
-  const socials = [
+{/*  const socials = [
     {
       label: "Facebook",
       href: "https://facebook.com",
@@ -66,7 +66,7 @@ export default function Footer({ scrollToSection }) {
         </svg>
       ),
     },
-  ];
+  ];*/}
 
   const handleNav = (id, href) => {
     if (href) { window.open(href, "_blank"); return; }
