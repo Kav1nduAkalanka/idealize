@@ -15,7 +15,8 @@ export default function Footer({ scrollToSection }) {
     { label: "Privacy Policy",   id: null },
   ];
 
-{/*  const socials = [
+  /* SOCIAL MEDIA DATA COMMENTED OUT
+  const socials = [
     {
       label: "Facebook",
       href: "https://facebook.com",
@@ -66,7 +67,8 @@ export default function Footer({ scrollToSection }) {
         </svg>
       ),
     },
-  ];*/}
+  ];
+  */
 
   const handleNav = (id, href) => {
     if (href) { window.open(href, "_blank"); return; }
@@ -83,18 +85,25 @@ export default function Footer({ scrollToSection }) {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           
-          {/* Col 1 — Logo + tagline + socials */}
+          {/* Col 1 — Logo + tagline */}
           <div className="flex flex-col gap-4">
+            {/* LOGO BUTTON COMMENTED OUT
             <button
               onClick={() => scrollToSection?.("hero")}
               className="text-lg font-black text-blue-400 uppercase italic tracking-tighter hover:text-blue-300 transition-colors text-left"
             >
               IDEALIZE 2026
-            </button>
+            </button> 
+            */}
+            <h2 className="text-lg font-black text-blue-400 uppercase italic tracking-tighter">
+               IDEALIZE 2026
+            </h2>
             <p className="text-xs text-slate-400 leading-relaxed">
               A national mobile app and web development competition
               organized by AIESEC in University of Moratuwa.
             </p>
+            
+            {/* SOCIAL MEDIA ICONS COMMENTED OUT
             <div className="flex items-center gap-4 mt-1">
               {socials.map(({ label, href, svg }) => (
                 <a
@@ -109,6 +118,7 @@ export default function Footer({ scrollToSection }) {
                 </a>
               ))}
             </div>
+            */}
           </div>
 
           {/* Col 2 — Quick Links */}
