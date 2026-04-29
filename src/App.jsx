@@ -47,18 +47,31 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const observers = [];
-    SECTIONS.forEach((id) => {
-      const el = sectionRefs.current[id];
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
-        { root: null, threshold: 0.4 }
-      );
-      obs.observe(el);
-      observers.push(obs);
-    });
-    return () => observers.forEach((o) => o.disconnect());
+    if (loading) return;
+
+    const handleScroll = () => {
+      let current = SECTIONS[0];
+      SECTIONS.forEach((id) => {
+        const el = sectionRefs.current[id];
+        if (!el) return;
+        const top = el.getBoundingClientRect().top;
+        if (top <= window.innerHeight * 0.5) {
+          current = id;
+        }
+      });
+      setActiveSection(current);
+    };
+
+    // listen on both window AND the main container to cover either case
+    const container = containerRef.current;
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    container?.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      container?.removeEventListener("scroll", handleScroll);
+    };
   }, [loading]);
 
   return (

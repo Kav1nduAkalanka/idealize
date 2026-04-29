@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.svg";
 
-
 const links = [
   { label: "About",      id: "about"      },
   { label: "Categories", id: "categories" },
@@ -12,17 +11,25 @@ const links = [
   { label: "FAQ",        id: "faq"        },
 ];
 
-
 export default function Navbar({ activeSection, scrollToSection }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      const container = document.getElementById("scroll-container");
+      const scrollY = container ? container.scrollTop : window.scrollY;
+      setScrolled(scrollY > 10);
+    };
+
     const container = document.getElementById("scroll-container");
-    if (!container) return;
-    const handleScroll = () => setScrolled(container.scrollTop > 10);
-    container.addEventListener("scroll", handleScroll);
-    return () => container.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    container?.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      container?.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleNav = (id) => {
@@ -75,27 +82,22 @@ export default function Navbar({ activeSection, scrollToSection }) {
           box-shadow: 0 0 22px rgba(77,96,189,0.55);
         }
         .register-btn:active { transform: scale(0.96); }
-
         .logo-slot {
-          /* Reserves the same space as before so layout doesn't shift */
           width: 12rem;
           flex-shrink: 0;
           position: relative;
         }
-
         .logo-btn {
           background: none;
           border: none;
           cursor: pointer;
           padding: 0;
-          /* Pull it out of flow so it doesn't stretch the navbar */
           position: absolute;
           top: 50%;
           left: 0;
           transform: translateY(-50%);
           z-index: 60;
         }
-
         .logo-img {
           height: 9rem;
           width: 9rem;
@@ -109,15 +111,12 @@ export default function Navbar({ activeSection, scrollToSection }) {
         className="flex justify-between items-center w-full px-6 lg:px-10"
         style={{ fontFamily: "'Space Grotesk', sans-serif", minHeight: '5rem' }}
       >
-
-        {/* Logo slot — keeps layout width, logo itself floats outside nav height */}
         <div className="logo-slot">
           <button onClick={() => handleNav("hero")} className="logo-btn">
             <img src={logo} alt="AIESEC" className="logo-img" />
           </button>
         </div>
 
-        {/* Desktop links */}
         <div className="hidden lg:flex items-center gap-6">
           {links.map(({ label, id }) => (
             <button key={label} onClick={() => handleNav(id)}
@@ -127,12 +126,10 @@ export default function Navbar({ activeSection, scrollToSection }) {
           ))}
         </div>
 
-        {/* Desktop register */}
         <button className="register-btn hidden lg:block" onClick={() => window.open("https://tally.so/r/Np4V0p", "_blank")}>
           Register Now
         </button>
 
-        {/* Mobile: register + hamburger */}
         <div className="flex lg:hidden items-center gap-3">
           <button className="register-btn" onClick={() => window.open("https://tally.so/r/Np4V0p", "_blank")}>
             Register
@@ -145,8 +142,6 @@ export default function Navbar({ activeSection, scrollToSection }) {
         </div>
       </div>
 
-
-      {/* Mobile dropdown */}
       <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
         <div className="bg-slate-950/95 backdrop-blur-xl border-t border-blue-500/20 px-6 py-5 flex flex-col gap-5">
