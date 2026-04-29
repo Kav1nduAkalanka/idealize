@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.svg";
 
+
 const links = [
-  { label: "About", id: "about" },
+  { label: "About",      id: "about"      },
   { label: "Categories", id: "categories" },
-  { label: "Awards", id: "awards" },
-  { label: "Timeline", id: "timeline" },
-  { label: "Partners", id: "partners" },
-  { label: "FAQ", id: "faq" },
+  { label: "Awards",     id: "awards"     },
+  { label: "Timeline",   id: "timeline"   },
+  { label: "Memories",   id: "memories"   },
+  { label: "Partners",   id: "partners"   },
+  { label: "FAQ",        id: "faq"        },
 ];
+
 
 export default function Navbar({ activeSection, scrollToSection }) {
   const [scrolled, setScrolled] = useState(false);

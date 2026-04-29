@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import WalkingSpider from "./spiderwalk";
 
+const REGISTRATION_START = new Date("2026-04-30T00:00:00");
 const TARGET_DATE = new Date("2026-05-12T00:00:00");
 
 function useCountdown(target) {
@@ -49,6 +50,7 @@ function Digit({ value, label, color, bgIcon }) {
 }
 
 export default function Countdown() {
+  const registrationOpen = new Date() >= REGISTRATION_START;
   const { days, hours, minutes, seconds } = useCountdown(TARGET_DATE);
   const isExpired = days === 0 && hours === 0 && minutes === 0 && seconds === 0;
 
@@ -66,24 +68,35 @@ export default function Countdown() {
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-1 mb-6 border border-primary/40 bg-primary/10">
-            <span className={`w-2 h-2 rounded-full ${isExpired ? "bg-red-500" : "bg-primary animate-pulse"}`}></span>
+            <span className={`w-2 h-2 rounded-full ${
+              !registrationOpen ? "bg-yellow-400 animate-pulse" :
+              isExpired ? "bg-red-500" :
+              "bg-primary animate-pulse"
+            }`}></span>
             <span
               className="font-bold text-xs tracking-widest text-primary uppercase"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              {isExpired ? "Registration Closed" : "Registration closing in"}
+              {!registrationOpen
+                ? `Registrations open on ${REGISTRATION_START.toDateString()}`
+                : isExpired
+                ? "Registration Closed"
+                : "Registration closing in"}
             </span>
           </div>
         </div>
 
-        {/* Countdown */}
-        {!isExpired ? (
+        {/* Countdown — only show if registration is open and not expired */}
+        {registrationOpen && !isExpired && (
           <div className="grid grid-cols-4 gap-3 md:gap-6 max-w-3xl mx-auto">
             {units.map(({ value, label, color, bgIcon }) => (
               <Digit key={label} value={value} label={label} color={color} bgIcon={bgIcon} />
             ))}
           </div>
-        ) : (
+        )}
+
+        {/* Expired state */}
+        {registrationOpen && isExpired && (
           <div className="text-center py-16">
             <span className="material-symbols-outlined text-7xl text-red-500 mb-4 block">lock</span>
             <p
@@ -95,8 +108,21 @@ export default function Countdown() {
           </div>
         )}
 
-        {/* CTA */}
-        {!isExpired && (
+        {/* Not yet open state */}
+        {!registrationOpen && (
+          <div className="text-center py-16">
+            <span className="material-symbols-outlined text-7xl text-yellow-400 mb-4 block">hourglass_top</span>
+            <p
+              className="text-slate-400 uppercase tracking-widest font-bold text-sm"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Registrations are not yet open. Stay tuned.
+            </p>
+          </div>
+        )}
+
+        {/* CTA — only show if registration is open */}
+        {registrationOpen && !isExpired && (
           <div className="text-center mt-12 md:mt-16">
             <button
               className="px-8 md:px-12 py-4 md:py-5 bg-primary text-white font-headline font-black uppercase tracking-widest text-base md:text-lg hover:scale-105 active:scale-95 transition-all shadow-[8px_8px_0px_0px_rgba(77,96,189,0.4)]"
@@ -114,9 +140,9 @@ export default function Countdown() {
         )}
 
         {/* Spider rows */}
-<div className="mt-16">
-  <WalkingSpider count={2} size={80} speeds={[0.04, 0.07]} />
-</div>
+        <div className="mt-16">
+          <WalkingSpider count={2} size={80} speeds={[0.04, 0.07]} />
+        </div>
 
       </div>
     </section>

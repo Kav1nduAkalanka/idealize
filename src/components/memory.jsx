@@ -9,6 +9,7 @@ const memories = [
   { type: "image", src: "/gallery/presentation.jpg", label: "Participant Presentation To Judges", year: "2026" },
   { type: "image", src: "/gallery/networking.jpg", label: "Networking Session With Sponsors", year: "2026" },
 ];
+
 const VIDEO_ID = "TvztdZQKvxo";
 
 function HudCorners({ accent = "blue" }) {
@@ -38,12 +39,12 @@ function VideoCard({ onClick }) {
       <Scanlines />
       <img
         src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
-        alt="IDEALIZE 2024 Aftermovie"
+        alt="IDEALIZE 2025 Aftermovie"
         className="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
       />
       <div className="absolute inset-0 flex items-center justify-center z-20">
-        <div className="w-20 h-20 rounded-full bg-red-600/80 border-2 border-red-400 flex items-center justify-center group-hover:scale-125 group-hover:bg-red-500 transition-all duration-300 shadow-[0_0_40px_rgba(239,68,68,0.6)]">
-          <span className="material-symbols-outlined text-white text-5xl ml-1">play_arrow</span>
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-red-600/80 border-2 border-red-400 flex items-center justify-center group-hover:scale-125 group-hover:bg-red-500 transition-all duration-300 shadow-[0_0_40px_rgba(239,68,68,0.6)]">
+          <span className="material-symbols-outlined text-white text-4xl md:text-5xl ml-1">play_arrow</span>
         </div>
       </div>
       <div className="absolute top-3 left-3 z-20 px-2 py-0.5 bg-red-500/20 border border-red-500/40 text-red-300 text-[9px] font-black tracking-widest uppercase">
@@ -52,12 +53,12 @@ function VideoCard({ onClick }) {
       <div className="absolute top-3 right-3 z-20 px-2 py-0.5 bg-red-500/20 border border-red-500/40 text-red-300 text-[9px] font-black tracking-widest uppercase">
         2025
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-5 z-20">
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-4 md:p-5 z-20">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-red-300" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          <p className="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-red-300" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
             IDEALIZE 2025 — Official Aftermovie
           </p>
-          <p className="text-[9px] text-slate-400 uppercase tracking-widest mt-1">Click to watch on YouTube player</p>
+          <p className="text-[9px] text-slate-400 uppercase tracking-widest mt-1">Click to watch on YouTube</p>
         </div>
       </div>
     </div>
@@ -79,16 +80,24 @@ function Lightbox({ item, onClose, onPrev, onNext, hasPrev, hasNext }) {
         >
           <span className="material-symbols-outlined text-base">close</span> Close
         </button>
+
         {hasPrev && (
-          <button onClick={onPrev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 w-10 h-10 border border-blue-500/40 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all z-10">
-            <span className="material-symbols-outlined">chevron_left</span>
+          <button
+            onClick={onPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-14 w-8 h-8 md:w-10 md:h-10 border border-blue-500/40 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all z-10 bg-slate-900/80"
+          >
+            <span className="material-symbols-outlined text-sm md:text-base">chevron_left</span>
           </button>
         )}
         {hasNext && (
-          <button onClick={onNext} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 w-10 h-10 border border-blue-500/40 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all z-10">
-            <span className="material-symbols-outlined">chevron_right</span>
+          <button
+            onClick={onNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-14 w-8 h-8 md:w-10 md:h-10 border border-blue-500/40 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all z-10 bg-slate-900/80"
+          >
+            <span className="material-symbols-outlined text-sm md:text-base">chevron_right</span>
           </button>
         )}
+
         <div className="relative border border-blue-500/30 p-1">
           <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-blue-400" />
           <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-blue-400" />
@@ -96,7 +105,7 @@ function Lightbox({ item, onClose, onPrev, onNext, hasPrev, hasNext }) {
             <div className="aspect-video w-full">
               <iframe
                 src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`}
-                title="IDEALIZE 2024 Aftermovie"
+                title="IDEALIZE 2025 Aftermovie"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
@@ -106,11 +115,14 @@ function Lightbox({ item, onClose, onPrev, onNext, hasPrev, hasNext }) {
             <img src={item.src} alt={item.label} className="w-full max-h-[78vh] object-contain" />
           )}
         </div>
+
         <div className="mt-3 flex items-center justify-between">
           <p className="text-xs font-black uppercase tracking-[0.25em] text-slate-400" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            {item.type === "video" ? "IDEALIZE 2024 — Official Aftermovie" : item.label}
+            {item.type === "video" ? "IDEALIZE 2025 — Official Aftermovie" : item.label}
           </p>
-          <span className="text-[9px] uppercase tracking-widest text-slate-600 font-bold border border-slate-700 px-2 py-0.5">{item.year ?? "2024"}</span>
+          <span className="text-[9px] uppercase tracking-widest text-slate-600 font-bold border border-slate-700 px-2 py-0.5">
+            {item.year ?? "2025"}
+          </span>
         </div>
       </div>
     </div>
@@ -123,13 +135,23 @@ export default function Memories() {
 
   const allItems = [...memories, { type: "video" }];
 
-  const VISIBLE = 3;
-  const maxIdx = memories.length - VISIBLE;
+  // 1 card on mobile, 3 on desktop — controlled via JS to keep math clean
+  const [visible, setVisible] = useState(
+    typeof window !== "undefined" && window.innerWidth < 768 ? 1 : 3
+  );
+
+  // Update visible count on resize
+  useState(() => {
+    const handle = () => setVisible(window.innerWidth < 768 ? 1 : 3);
+    window.addEventListener("resize", handle);
+    return () => window.removeEventListener("resize", handle);
+  });
+
+  const GAP = 16;
+  const maxIdx = Math.max(0, memories.length - visible);
 
   const prev = () => setCarouselIdx((i) => Math.max(0, i - 1));
   const next = () => setCarouselIdx((i) => Math.min(maxIdx, i + 1));
-
-  const visibleMemories = memories.slice(carouselIdx, carouselIdx + VISIBLE);
 
   return (
     <section className="py-24 px-6 bg-slate-900/50 min-h-screen flex flex-col justify-center relative overflow-hidden" id="memories">
@@ -151,26 +173,29 @@ export default function Memories() {
         </div>
 
         {/* Carousel */}
-        <div className="relative">
+        <div className="relative px-6 md:px-0">
           <button
             onClick={prev}
             disabled={carouselIdx === 0}
-            className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-blue-500/40 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed bg-slate-900"
+            className="absolute left-0 md:-left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 border border-blue-500/40 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed bg-slate-900"
           >
-            <span className="material-symbols-outlined">chevron_left</span>
+            <span className="material-symbols-outlined text-sm md:text-base">chevron_left</span>
           </button>
 
           <div className="overflow-hidden">
             <div
-              className="flex transition-transform duration-500 ease-in-out gap-4"
-              style={{ transform: `translateX(calc(-${carouselIdx * (100 / VISIBLE)}% - ${carouselIdx * (16 / VISIBLE)}px))` }}
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                gap: `${GAP}px`,
+                transform: `translateX(calc(-${carouselIdx} * (100% / ${visible}) - ${carouselIdx} * ${GAP / visible}px))`,
+              }}
             >
               {memories.map((item, i) => (
                 <div
                   key={i}
                   onClick={() => setActiveIdx(i)}
                   className="group relative overflow-hidden bg-slate-900 border border-blue-500/20 hover:border-blue-400/60 transition-all duration-500 cursor-pointer flex-shrink-0"
-                  style={{ width: `calc(${100 / VISIBLE}% - ${(16 * (VISIBLE - 1)) / VISIBLE}px)` }}
+                  style={{ width: `calc(100% / ${visible} - ${(GAP * (visible - 1)) / visible}px)` }}
                 >
                   <HudCorners />
                   <Scanlines />
@@ -198,9 +223,9 @@ export default function Memories() {
           <button
             onClick={next}
             disabled={carouselIdx >= maxIdx}
-            className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-blue-500/40 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed bg-slate-900"
+            className="absolute right-0 md:-right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 border border-blue-500/40 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed bg-slate-900"
           >
-            <span className="material-symbols-outlined">chevron_right</span>
+            <span className="material-symbols-outlined text-sm md:text-base">chevron_right</span>
           </button>
         </div>
 
